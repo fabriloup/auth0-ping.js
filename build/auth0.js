@@ -9679,7 +9679,7 @@
 
 	  qString = lib.stringify(params);
 
-	  return urlJoin(this.baseOptions.rootUrl, 'as/authorize.oauth2', '?' + qString);
+	  return urlJoin(this.baseOptions.rootUrl, 'as/authorization.oauth2', '?' + qString);
 	};
 
 	/**

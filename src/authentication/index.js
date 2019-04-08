@@ -159,7 +159,7 @@ Authentication.prototype.buildAuthorizeUrl = function(options) {
 
   qString = qs.stringify(params);
 
-  return urljoin(this.baseOptions.rootUrl, 'as/authorize.oauth2', '?' + qString);
+  return urljoin(this.baseOptions.rootUrl, 'as/authorization.oauth2', '?' + qString);
 };
 
 /**
