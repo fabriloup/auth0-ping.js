@@ -1,7 +1,7 @@
 /**
  * auth0-js v9.10.1
  * Author: Auth0
- * Date: 2019-04-08
+ * Date: 2019-04-11
  * License: MIT
  */
 
@@ -9563,6 +9563,7 @@
 	    {
 	      domain: { type: 'string', message: 'domain option is required' },
 	      clientID: { type: 'string', message: 'clientID option is required' },
+	      p: { type: 'string', message: 'User flow is required' },
 	      responseType: { optional: true, type: 'string', message: 'responseType is not valid' },
 	      responseMode: { optional: true, type: 'string', message: 'responseMode is not valid' },
 	      redirectUri: { optional: true, type: 'string', message: 'redirectUri is not valid' },
@@ -9633,7 +9634,8 @@
 	      'responseMode',
 	      'redirectUri',
 	      'scope',
-	      'audience'
+	      'audience',
+	      'p'
 	    ])
 	    .with(options);
 
@@ -9645,6 +9647,7 @@
 	      clientID: { type: 'string', message: 'clientID option is required' },
 	      redirectUri: { optional: true, type: 'string', message: 'redirectUri option is required' },
 	      responseType: { type: 'string', message: 'responseType option is required' },
+	      p: { type: 'string', message: 'user flow option is required' },
 	      nonce: {
 	        type: 'string',
 	        message: 'nonce option is required',
@@ -9679,7 +9682,7 @@
 
 	  qString = lib.stringify(params);
 
-	  return urlJoin(this.baseOptions.rootUrl, 'as/authorization.oauth2', '?' + qString);
+	  return urlJoin(this.baseOptions.rootUrl, 'authorize', '?' + qString);
 	};
 
 	/**
