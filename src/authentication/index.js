@@ -43,6 +43,7 @@ function Authentication(auth0, options) {
     {
       domain: { type: 'string', message: 'domain option is required' },
       clientID: { type: 'string', message: 'clientID option is required' },
+      p: { type: 'string', message: 'User flow is required' },
       responseType: { optional: true, type: 'string', message: 'responseType is not valid' },
       responseMode: { optional: true, type: 'string', message: 'responseMode is not valid' },
       redirectUri: { optional: true, type: 'string', message: 'redirectUri is not valid' },
@@ -113,7 +114,8 @@ Authentication.prototype.buildAuthorizeUrl = function(options) {
       'responseMode',
       'redirectUri',
       'scope',
-      'audience'
+      'audience',
+      'p'
     ])
     .with(options);
 
@@ -125,6 +127,7 @@ Authentication.prototype.buildAuthorizeUrl = function(options) {
       clientID: { type: 'string', message: 'clientID option is required' },
       redirectUri: { optional: true, type: 'string', message: 'redirectUri option is required' },
       responseType: { type: 'string', message: 'responseType option is required' },
+      p: { type: 'string', message: 'user flow option is required' },
       nonce: {
         type: 'string',
         message: 'nonce option is required',
@@ -159,7 +162,7 @@ Authentication.prototype.buildAuthorizeUrl = function(options) {
 
   qString = qs.stringify(params);
 
-  return urljoin(this.baseOptions.rootUrl, 'as/authorization.oauth2', '?' + qString);
+  return urljoin(this.baseOptions.rootUrl, 'authorize', '?' + qString);
 };
 
 /**
