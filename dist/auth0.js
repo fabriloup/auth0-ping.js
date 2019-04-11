@@ -9563,7 +9563,7 @@
 	    {
 	      domain: { type: 'string', message: 'domain option is required' },
 	      clientID: { type: 'string', message: 'clientID option is required' },
-	      p: { type: 'string', message: 'User flow is required' },
+	      p: { optional: true, type: 'string', message: 'User flow is required' },
 	      responseType: { optional: true, type: 'string', message: 'responseType is not valid' },
 	      responseMode: { optional: true, type: 'string', message: 'responseMode is not valid' },
 	      redirectUri: { optional: true, type: 'string', message: 'redirectUri is not valid' },
