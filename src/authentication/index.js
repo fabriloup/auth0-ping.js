@@ -43,7 +43,8 @@ function Authentication(auth0, options) {
     {
       domain: { type: 'string', message: 'domain option is required' },
       clientID: { type: 'string', message: 'clientID option is required' },
-      p: { optional: true, type: 'string', message: 'User flow is required' },
+      p: { optional: true, type: 'string', message: 'User flow is not required' },
+      domain_hint: { optional: true, type: 'string', message: 'domain_hint is not required' },
       responseType: { optional: true, type: 'string', message: 'responseType is not valid' },
       responseMode: { optional: true, type: 'string', message: 'responseMode is not valid' },
       redirectUri: { optional: true, type: 'string', message: 'redirectUri is not valid' },
@@ -115,7 +116,8 @@ Authentication.prototype.buildAuthorizeUrl = function(options) {
       'redirectUri',
       'scope',
       'audience',
-      'p'
+      'p',
+      'domain_hint'
     ])
     .with(options);
 
@@ -127,7 +129,8 @@ Authentication.prototype.buildAuthorizeUrl = function(options) {
       clientID: { type: 'string', message: 'clientID option is required' },
       redirectUri: { optional: true, type: 'string', message: 'redirectUri option is required' },
       responseType: { type: 'string', message: 'responseType option is required' },
-      p: { type: 'string', message: 'user flow option is required' },
+      p: { type: 'string', message: 'user flow option is not required' },
+      domain_hint: { type: 'string', message: 'domain_hint option is not required' },
       nonce: {
         type: 'string',
         message: 'nonce option is required',
